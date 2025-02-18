@@ -1,0 +1,67 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+# Ignore lock files (optional, depending on package manager)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build files
+client/dist/
+backend/dist/
+
+# Editor and OS-specific files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Git-related
+.git/
+
+# Vite cache
+client/.vite/
+client/.cache/
+
+# PostgreSQL data (if you have local DB dumps)
+pgdata/
+*.sql
+
+# Next.js (if you later integrate it)
+.next/
+out/
+
+# Logs
+logs/
+*.log
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Coverage reports
+coverage/
+*.lcov
+
+# ESLint and Prettier cache
+client/.eslintcache
+backend/.eslintcache
+.prettier-cache/
+
+# Deployment-related files
+.vercel/
+.netlify/
