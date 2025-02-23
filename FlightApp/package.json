@@ -10,6 +10,8 @@
     "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix client\""
   },
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "curl": "^0.1.4",
+    "recharts": "^2.15.1"
   }
 }

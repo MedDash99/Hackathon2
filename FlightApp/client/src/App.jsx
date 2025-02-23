@@ -1,28 +1,43 @@
-import { useEffect, useState } from "react";
-import './App.css'
-import axios from 'axios'
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./LoginPage";
+import FlightSearchPage from "./FlightSearchPage";
+import FavoritesPage from "./FavoritesPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
-  const [flights, setFlights] = useState([]);
-
-  useEffect(() => {
-    axios.get("/api/flights") // No need for full URL due to proxy
-      .then((res) => setFlights(res.data))
-      .catch((err) => console.error(err));
-  }, []);
-
   return (
-    <div>
-      <h1>Flight Data</h1>
-      <ul>
-        {flights.map((flight) => (
-          <li key={flight.id}>
-            {flight.airline} - {flight.departure} → {flight.arrival} (${flight.price})
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route
+          path="/flights"
+          element={
+            <ProtectedRoute>
+              <FlightSearchPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <ProtectedRoute>
+              <FavoritesPage />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
+
+const container = document.getElementById("root");
+const root = createRoot(container);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 export default App;
